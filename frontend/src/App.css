@@ -1,11 +1,25 @@
-.App {
-  text-align: center;
+.Search {
+  background-color: #fff;
+  border-radius: 0.25rem;
+  border: 0.125rem solid #ddd;
+  display: flex;
+  margin-bottom: 1rem;
+  transition: box-shadow 0.25s;
+  max-width: 400px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Search:focus-within {
+  box-shadow: 0 0 0 0.25rem #0074d9;
 }
-.full-width {
-  height: 46px;
+
+.Search-input {
+  border: 0;
+  flex: 1;
+  line-height: 1.5;
+  transition: box-shadow 0.25s;
+}
+
+.Search-input:focus,
+.Search-input:hover {
+  outline: none;
 }
