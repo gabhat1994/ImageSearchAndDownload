@@ -1,10 +1,17 @@
-import React from "react";
 import SearchBar from "./SearchBar";
+import React, { Component } from "react";
 
-export default function HomePage() {
-  return (
-    <div>
-      <SearchBar />
-    </div>
-  );
+class HomePage extends Component {
+  onSearchSubmit = (term) => {
+    console.log(term, "term");
+  };
+  render() {
+    return (
+      <div>
+        <SearchBar userSubmit={this.onSearchSubmit} />
+      </div>
+    );
+  }
 }
+
+export default HomePage;

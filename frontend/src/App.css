@@ -17,6 +17,7 @@
   flex: 1;
   line-height: 1.5;
   transition: box-shadow 0.25s;
+  font-size: 1.5em;
 }
 
 .Search-input:focus,
