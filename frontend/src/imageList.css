@@ -1,11 +1,14 @@
 .image__list {
   display: grid;
-  grid-template-columns: auto auto auto ;
-  grid-gap: 5 5px;
-  grid-auto-rows: 10px;
+  grid-template-columns: auto auto auto;
+  grid-gap: 20px;
+  align-items: stretch;
   /* place-items:center; */
 }
 
 .image__list img {
-  width: 250px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  max-width: 350px;
+  max-height: 350px;
 }
