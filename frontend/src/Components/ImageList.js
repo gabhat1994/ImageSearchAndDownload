@@ -6,7 +6,11 @@ const ImageList = (props) => {
   const imgs = props.foundImages.map((img) => {
     return <ImageCard image={img} />;
   });
-  return <div className="image__list">{imgs}</div>;
+  return (
+    <div className="image__list" style={{ marginLeft: "250px" }}>
+      {imgs}
+    </div>
+  );
 };
 
 export default ImageList;
