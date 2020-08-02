@@ -1,12 +1,34 @@
 import Modal from "react-modal";
 import React from "react";
+import axios from "axios";
+
 function ImagePage(props) {
   const closeModal = () => {
     props.closeModal();
   };
 
-  const handleDownload = (event) => {
+  const handleDownload = async (event) => {
     event.preventDefault();
+    let api = props.image.urls.full;
+
+    const response = await axios.get(
+      api,
+
+      {
+        headers: {
+          Authorization:
+            "Client-ID o7dYoGTAAYKjip1p_dFQ6BJvbbAvLuxY6v_SDnbxsCw",
+        },
+        responseType: "blob",
+      }
+    );
+
+    const url = window.URL.createObjectURL(new Blob([response.data]));
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", "image.jpg");
+    document.body.appendChild(link);
+    link.click();
   };
   return (
     <Modal
