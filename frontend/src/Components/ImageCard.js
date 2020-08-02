@@ -15,7 +15,8 @@ class ImageCard extends Component {
     this.imageRef.current.addEventListener("load", this.setSpans);
   }
 
-  onClick = () => {
+  onClick = (event) => {
+    event.preventDefault();
     this.setState({ popup: true });
   };
 
@@ -24,7 +25,6 @@ class ImageCard extends Component {
   };
 
   render() {
-    console.log(this.state.popup, "test");
     return (
       <div>
         <button>
