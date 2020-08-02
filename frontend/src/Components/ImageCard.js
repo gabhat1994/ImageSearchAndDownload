@@ -38,6 +38,19 @@ class ImageCard extends Component {
             width="250px"
             height="250px"
           />
+          <div style={{ marginTop: "-47px" }}>
+            <img
+              key={this.props.image.id}
+              style={{ borderRadius: "50%", marginLeft: "-194px" }}
+              src={this.props.image.user.profile_image.small}
+            />
+            <div style={{ marginTop: "-22px", marginLeft: "10px" }}>
+              <label style={{ color: "white" }} key={this.props.image.id}>
+                image by {this.props.image.user.first_name}{" "}
+                {this.props.image.user.last_name}{" "}
+              </label>
+            </div>
+          </div>
         </button>
 
         {this.state.popup && (

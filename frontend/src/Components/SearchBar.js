@@ -13,19 +13,17 @@ class SearchBar extends Component {
   };
   render() {
     return (
-      <div>
-        <form className="Search" onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            placeholder="Search for Images here.."
-            className="Search-input"
-            onChange={this.onInputChange}
-            value={this.state.val}
-          />
+      <form className="Search" onSubmit={this.handleSubmit}>
+        <input
+          type="text"
+          placeholder="Search for Images here.."
+          className="Search-input"
+          onChange={this.onInputChange}
+          value={this.state.val}
+        />
 
-          <SearchIcon height="24px" width="24px" />
-        </form>
-      </div>
+        <SearchIcon height="24px" width="24px" />
+      </form>
     );
   }
 }
