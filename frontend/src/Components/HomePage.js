@@ -1,71 +1,38 @@
 import SearchBar from "./SearchBar";
-import React, { Component, useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
 import ImageList from "./ImageList";
-
+import { initialData, searchData } from "../actions/imageActions";
+import { useDispatch, useSelector } from "react-redux";
 function HomePage() {
-  const [images, setImages] = useState([]);
+  const dispatch = useDispatch();
   const [initialLoad, setinitialLoad] = useState(true);
   const [query, setQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [currentIPage, setCurrentIPage] = useState(1);
   const per_page = 9;
-
-  useEffect(async () => {
+  const imageReducer = useSelector((state) => state.imageReducer);
+  const { images } = imageReducer;
+  useEffect(() => {
     if (initialLoad) {
-      const response = await axios.get("https://api.unsplash.com/photos", {
-        params: { page: currentPage, per_page: per_page },
-        headers: {
-          Authorization:
-            "Client-ID o7dYoGTAAYKjip1p_dFQ6BJvbbAvLuxY6v_SDnbxsCw",
-        },
-      });
-
-      setImages(response.data);
+      dispatch(initialData(currentIPage, per_page));
     }
   }, []);
-  const onSearchSubmit = async (term) => {
+  const onSearchSubmit = (term) => {
     setinitialLoad(false);
-    const response = await axios.get(
-      "https://api.unsplash.com/search/photos/",
-      {
-        params: { page: currentPage, per_page: per_page, query: term },
-        headers: {
-          Authorization:
-            "Client-ID o7dYoGTAAYKjip1p_dFQ6BJvbbAvLuxY6v_SDnbxsCw",
-        },
-      }
-    );
+    dispatch(searchData(currentPage, term, per_page));
     setQuery(term);
-    setImages(response.data.results);
   };
 
-  const onPageChange = async (term) => {
-    let page = currentPage + 1;
+  const onPageChange = () => {
     if (initialLoad == false) {
-      const response = await axios.get(
-        "https://api.unsplash.com/search/photos/",
-        {
-          params: { page: page, per_page: per_page, query: query },
-          headers: {
-            Authorization:
-              "Client-ID o7dYoGTAAYKjip1p_dFQ6BJvbbAvLuxY6v_SDnbxsCw",
-          },
-        }
-      );
+      let page = currentPage + 1;
+      dispatch(searchData(page, query, per_page));
       setCurrentPage(page);
-      setImages(response.data.results);
     } else {
-      const response = await axios.get("https://api.unsplash.com/photos", {
-        params: { page: page, per_page: per_page },
-        headers: {
-          Authorization:
-            "Client-ID o7dYoGTAAYKjip1p_dFQ6BJvbbAvLuxY6v_SDnbxsCw",
-        },
-      });
-      setCurrentPage(page);
-      setImages(response.data);
+      let page = currentIPage + 1;
+      dispatch(initialData(page, per_page));
+      setCurrentIPage(page);
     }
-  
   };
 
   return (
