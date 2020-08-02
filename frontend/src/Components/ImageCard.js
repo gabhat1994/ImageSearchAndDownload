@@ -15,12 +15,6 @@ class ImageCard extends Component {
     this.imageRef.current.addEventListener("load", this.setSpans);
   }
 
-  setSpans = () => {
-    const height = this.imageRef.current.clientHeight;
-    const spanRows = Math.ceil(height / 10);
-    this.setState({ spans: spanRows });
-  };
-
   onClick = () => {
     this.setState({ popup: true });
   };
@@ -41,14 +35,15 @@ class ImageCard extends Component {
           alt={this.props.image.alt_description}
           onClick={this.onClick}
         />
-
-        {this.state.popup && (
-          <ImagePage
-            isOpen={this.state.popup}
-            closeModal={this.onClose}
-            image={this.props.image}
-          />
-        )}
+        <div>
+          {this.state.popup && (
+            <ImagePage
+              isOpen={this.state.popup}
+              closeModal={this.onClose}
+              image={this.props.image}
+            />
+          )}
+        </div>
       </div>
     );
   }

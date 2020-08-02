@@ -5,9 +5,9 @@ function ImagePage(props) {
     props.closeModal();
   };
 
-  const handleDownload =() =>{
-    
-  }
+  const handleDownload = (event) => {
+    event.preventDefault();
+  };
   return (
     <Popup open={props.isOpen} closeOnDocumentClick onClose={closeModal}>
       <div className="modal">

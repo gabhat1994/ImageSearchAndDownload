@@ -48,7 +48,7 @@ function HomePage() {
       <br />
       {images.length > 0 ? (
         <button
-          style={{ marginTop: "564px", marginLeft: "644px" }}
+          style={{ marginTop: "6px", marginLeft: "644px" }}
           onClick={onPageChange}
         >
           Load More

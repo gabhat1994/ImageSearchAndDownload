@@ -27,11 +27,9 @@
 
 .modal {
   font-size: 12px;
-  max-width: 1400px;
-  max-height: 1400px;
 }
 
-.modal > .modal-class {
+.modal > .content {
   width: 100%;
   padding: 10px 5px;
 }

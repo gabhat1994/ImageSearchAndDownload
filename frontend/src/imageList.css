@@ -3,7 +3,6 @@
   grid-template-columns: auto auto auto;
   grid-gap: 20px;
   align-items: stretch;
-
   place-items: center;
 }
 
