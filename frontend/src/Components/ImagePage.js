@@ -14,14 +14,18 @@ function ImagePage(props) {
         <a className="close" onClick={closeModal}>
           &times;
         </a>
-        <div className="modal-class">
-          <img
-            src={props.image.urls.regular}
-            alt={props.image.alt_description}
-          />
-          <br />
-          <button onClick={handleDownload}>Download</button>
-        </div>
+
+        <img
+          style={{ marginLeft: "5px", marginRight: "5px" }}
+          src={props.image.urls.regular}
+          alt={props.image.alt_description}
+          width="700px"
+          height="450px"
+        />
+        <br />
+        <button style={{ marginLeft: "300px" }} onClick={handleDownload}>
+          Download
+        </button>
       </div>
     </Popup>
   );

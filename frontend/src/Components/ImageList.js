@@ -7,7 +7,7 @@ const ImageList = (props) => {
     return <ImageCard image={img} />;
   });
   return (
-    <div className="image__list" style={{ marginLeft: "250px" }}>
+    <div className="image__list" style={{ marginLeft: "100px" }}>
       {imgs}
     </div>
   );

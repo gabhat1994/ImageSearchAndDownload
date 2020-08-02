@@ -27,23 +27,26 @@ class ImageCard extends Component {
     console.log(this.state.popup, "test");
     return (
       <div>
-        <img
-          role="button"
-          ref={this.imageRef}
-          key={this.props.image.id}
-          src={this.props.image.urls.small}
-          alt={this.props.image.alt_description}
-          onClick={this.onClick}
-        />
-        <div>
-          {this.state.popup && (
-            <ImagePage
-              isOpen={this.state.popup}
-              closeModal={this.onClose}
-              image={this.props.image}
-            />
-          )}
-        </div>
+        <button>
+          <img
+            role="button"
+            ref={this.imageRef}
+            key={this.props.image.id}
+            src={this.props.image.urls.small}
+            alt={this.props.image.alt_description}
+            onClick={this.onClick}
+            width="250px"
+            height="250px"
+          />
+        </button>
+
+        {this.state.popup && (
+          <ImagePage
+            isOpen={this.state.popup}
+            closeModal={this.onClose}
+            image={this.props.image}
+          />
+        )}
       </div>
     );
   }

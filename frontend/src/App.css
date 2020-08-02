@@ -47,3 +47,7 @@
   border-radius: 18px;
   border: 1px solid #cfcece;
 }
+
+.test img {
+  border: 1px solid #ccc;
+}
