@@ -1,6 +1,5 @@
 import SearchBar from "./SearchBar";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import ImageList from "./ImageList";
 import { initialData, searchData } from "../actions/imageActions";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,14 +17,13 @@ function HomePage() {
       dispatch(initialData(currentIPage, per_page));
     }
   }, []);
-  const onSearchSubmit = async (term) => {
+  const onSearchSubmit = (term) => {
     setinitialLoad(false);
     dispatch(searchData(currentPage, term, per_page));
-
     setQuery(term);
   };
 
-  const onPageChange = async () => {
+  const onPageChange = () => {
     if (initialLoad == false) {
       let page = currentPage + 1;
       dispatch(searchData(page, query, per_page));
