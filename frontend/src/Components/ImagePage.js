@@ -4,16 +4,24 @@ function ImagePage(props) {
   const closeModal = () => {
     props.closeModal();
   };
+
+  const handleDownload =() =>{
+    
+  }
   return (
     <Popup open={props.isOpen} closeOnDocumentClick onClose={closeModal}>
       <div className="modal">
         <a className="close" onClick={closeModal}>
           &times;
         </a>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae magni
-        omnis delectus nemo, maxime molestiae dolorem numquam mollitia,
-        voluptate ea, accusamus excepturi deleniti ratione sapiente! Laudantium,
-        aperiam doloribus. Odit, aut.
+        <div className="modal-class">
+          <img
+            src={props.image.urls.regular}
+            alt={props.image.alt_description}
+          />
+          <br />
+          <button onClick={handleDownload}>Download</button>
+        </div>
       </div>
     </Popup>
   );
