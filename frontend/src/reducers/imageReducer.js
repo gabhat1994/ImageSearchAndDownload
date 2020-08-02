@@ -13,6 +13,8 @@ function imageReducer(state = { images: [] }, action) {
       return { images: action.payload };
     case IMAGE_SEARCH_LOAD:
       return { images: action.payload };
+    case IMAGE_SEARCH_LOAD_FAILED:
+      return { images: action.payload };
     default:
       return state;
   }
